@@ -3,15 +3,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printName(int n,int i){
-    i++;
+
+void print(int i,int n){
+
     if(i>n) return;
-    cout<<"vivek"<<i;
-    cout<<endl;
-    printName(n,i);
-};
+
+    cout<<"Vivek"<<endl;
+    i++;
+    print(i,n);
+}
+
 int main(){
-    int n;
-    cin>>n;
-    printName(n,0);
+    print(0,4);
+    return 0;
 }
