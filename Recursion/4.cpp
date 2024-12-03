@@ -5,16 +5,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int check(string s,int size,int i){
-    if(size <= i) return 1;
-    if(s[i] != s[size]){
+int check( string s,int len,int i){
+
+    if(len<=i) return 1;
+
+    if(s[i] != s[len]){
         return 0;
-    }
-    return check(s,size-1,i+1);
+    };
+
+    return check(s,len-1,i+1);
 }
 int main(){
 
-    string s="VIsIV";
+    string s="VIsTV";
     int size= s.size();
 
     int res = check(s,size-1,0);

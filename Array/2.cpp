@@ -5,10 +5,11 @@ using namespace std;
 
 //rotate by 1place left 
 void find1(int arr[],int len){
-
+    int temp=arr[0];
     for(int i=0;i<len;i++){
         swap(arr[i+1],arr[i]);
     }
+    arr[len] =temp;
 }
 //tc-> n
 

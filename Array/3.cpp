@@ -165,32 +165,34 @@ pair<int, int> find8(int arr[], int len, int k)
 // tc-> n square
 
 // optimal
-int find9(int arr[], int len, int k)
+int checks(int arr1[],int len1,int k)
 {
+    int lngsub=0;
+    int sum =arr1[0];
+    int i=0;
+    int j=0;
 
-    int i = 0;
-    int j = 0;
-    int sum = 0;
-    int indx = 0;
-    while (j < len)
-    {
-        sum += arr[j];
-        if (sum == k)
-        {
-            indx = max(indx,(j - i) + 1);
-        }
-        while (sum>k && i<=j)
-        {
-            sum=sum-arr[i];
+    while(i<len1){
+
+        while(i<=j && sum>k){
+            sum-=arr1[i];
             i++;
-            if(sum==k){
-                indx = max(indx,(j - i) + 1);
-            }
+        }
+
+        if(sum==k){
+
+            lngsub=max(lngsub,j-i+1);
         }
         j++;
+
+        if(j<len1){
+            sum+=arr1[j];
+        }
     }
-    return indx;
+
+    return lngsub;
 }
+//tc->2n
 
 //optimal for positive and neg.
 int find10(int arr[], int len, int k){
