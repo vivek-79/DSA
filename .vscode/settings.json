@@ -61,6 +61,7 @@
     "bitset": "cpp",
     "chrono": "cpp",
     "algorithm": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "new": "cpp"
   }
 }
