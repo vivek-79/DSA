@@ -3,15 +3,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void merge(int arr[], int low, int mid, int high)
+void merge(vector<int> &arr, int low, int mid, int high)
 {
 
     int left = low;
     int right = mid + 1;
-
     vector<int> temp;
+
     while (left <= mid && right <= high)
     {
+
         if (arr[left] <= arr[right])
         {
             temp.push_back(arr[left]);
@@ -22,45 +23,50 @@ void merge(int arr[], int low, int mid, int high)
             temp.push_back(arr[right]);
             right++;
         }
-    }
+    };
+
+    while (left <= mid)
+    {
+        temp.push_back(arr[left]);
+        left++;
+    };
     while (right <= high)
     {
         temp.push_back(arr[right]);
         right++;
     };
-    while (left <= mid)
-    {
-        temp.push_back(arr[left]);
-        left++;
-    }
 
     for (int i = low; i <= high; i++)
     {
         arr[i] = temp[i - low];
     }
-}
-void mergesort(int arr[], int low, int high)
+};
+
+void mergeSort(vector<int> &arr, int low, int high)
 {
+
     if (low >= high)
         return;
-    int mid = low +(high-low)/2;
 
-    mergesort(arr, low, mid);
-    mergesort(arr, mid + 1, high);
+    int mid = (low + high) / 2;
+
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid + 1, high);
     merge(arr, low, mid, high);
-}
+};
+
 int main()
 {
-    int arr[] = {1, 4, 5, 8, 9, 3, 5};
 
-    int len = sizeof(arr) / sizeof(arr[0]);
+    vector<int> arr = {12, 1, 3, 3, 67, 18, 2, 8, 5};
 
-    mergesort(arr, 0, len - 1);
+    mergeSort(arr, 0, arr.size());
 
-    for (int i = 0; i < len; i++)
+    for (auto it : arr)
     {
-        cout << arr[i];
+        cout << it << " ";
     }
+    return 0;
 }
 
 //tc-> log base 2n * n;
