@@ -53,8 +53,5 @@ int main()
 
     mergeSort(arr,0,arr.size());
 
-    for(auto it:arr){
-        cout << it << " ";
-    }
     return 0;
 }
